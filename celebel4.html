@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Responsive Layout Example</title>
+  <style>
+    /* Global Styles */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+    }
+
+    header {
+      background: #333;
+      color: #fff;
+      padding: 1rem;
+      position: relative;
+    }
+
+    /* Flex Navigation Menu */
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1rem;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+    }
+
+    /* Mobile Nav Toggle */
+    .menu-toggle {
+      display: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    /* Main Layout with Grid */
+    .layout {
+      display: grid;
+      grid-template-columns: 3fr 1fr;
+      gap: 1rem;
+      padding: 1rem;
+    }
+
+    main {
+      background: #f4f4f4;
+      padding: 1rem;
+    }
+
+    aside {
+      background: #eaeaea;
+      padding: 1rem;
+    }
+
+    footer {
+      background: #333;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      margin-top: 1rem;
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      .layout {
+        grid-template-columns: 1fr;
+      }
+
+      nav ul {
+        flex-direction: column;
+        background: #444;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        width: 100%;
+        display: none;
+      }
+
+      nav ul.show {
+        display: flex;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header Section -->
+  <header>
+    <div class="nav-container">
+      <div class="logo">MySite</div>
+      <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+      <nav>
+        <ul id="nav-list">
+          <li><a href="#">Home</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Services</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Content Area -->
+  <div class="layout">
+    <main>
+      <h2>Main Content</h2>
+      <br/>
+      <p>Hi Everyone</p>
+      <p>My name is Riya Garg.</p>
+        <p>This is week 4 assignment of my celebel internship in app modernization domain.</p>
+      <p>I have learnt many new things through this wonderful opportunity.</p>
+    </main>
+
+    <!-- Sidebar -->
+    <aside>
+      <h3>Sidebar</h3>
+      <ul>
+        <li>Certificates</li>
+        <li>Skills</li>
+        <li>Internships</li>
+        <li>Projects</li>
+      </ul>
+    </aside>
+  </div>
+
+  <!-- Footer Section -->
+  <footer>
+    <p>© 2025 MySite. All rights reserved.</p>
+  </footer>
+
+  <!-- JavaScript for Toggle -->
+  <script>
+    function toggleMenu() {
+      const navList = document.getElementById('nav-list');
+      navList.classList.toggle('show');
+    }
+  </script>
+</body>
+</html>
